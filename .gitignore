@@ -1,0 +1,16 @@
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores e IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Pacotes e artefatos de empacotamento
+*.zip
+*.crx
+*.pem
+node_modules/

@@ -1,0 +1,56 @@
+/* Modo Intermediário: Fundo cinza escuro confortável (#202020), sem efeito negativo em mídias */
+html[data-site-dark-mode="medio"] {
+  filter: invert(100%) hue-rotate(180deg) contrast(0.75) !important;
+  background-color: #ffffff !important;
+  color-scheme: dark !important;
+}
+
+/* Modo Alto: Modo noturno pleno de alto contraste com fundo preto profundo (#000000) */
+html[data-site-dark-mode="alto"],
+html[data-site-dark-mode="on"] {
+  filter: invert(100%) hue-rotate(180deg) !important;
+  background-color: #ffffff !important;
+  color-scheme: dark !important;
+}
+
+/* Reverte inversão para elementos de mídia nos modos noturnos evitando efeito negativo */
+html:is([data-site-dark-mode="medio"], [data-site-dark-mode="alto"], [data-site-dark-mode="on"]) img,
+html:is([data-site-dark-mode="medio"], [data-site-dark-mode="alto"], [data-site-dark-mode="on"]) video,
+html:is([data-site-dark-mode="medio"], [data-site-dark-mode="alto"], [data-site-dark-mode="on"]) canvas,
+html:is([data-site-dark-mode="medio"], [data-site-dark-mode="alto"], [data-site-dark-mode="on"]) embed,
+html:is([data-site-dark-mode="medio"], [data-site-dark-mode="alto"], [data-site-dark-mode="on"]) object,
+html:is([data-site-dark-mode="medio"], [data-site-dark-mode="alto"], [data-site-dark-mode="on"]) input[type="image"],
+html:is([data-site-dark-mode="medio"], [data-site-dark-mode="alto"], [data-site-dark-mode="on"]) [style*="background-image" i]:not(:has(h1, h2, h3, h4, h5, h6, p, article, section, nav, form, table)),
+html:is([data-site-dark-mode="medio"], [data-site-dark-mode="alto"], [data-site-dark-mode="on"]) iframe[src*="youtube.com"],
+html:is([data-site-dark-mode="medio"], [data-site-dark-mode="alto"], [data-site-dark-mode="on"]) iframe[src*="youtube-nocookie.com"],
+html:is([data-site-dark-mode="medio"], [data-site-dark-mode="alto"], [data-site-dark-mode="on"]) iframe[src*="vimeo.com"],
+html:is([data-site-dark-mode="medio"], [data-site-dark-mode="alto"], [data-site-dark-mode="on"]) iframe[src*="twitch.tv"],
+html:is([data-site-dark-mode="medio"], [data-site-dark-mode="alto"], [data-site-dark-mode="on"]) iframe[src*="dailymotion.com"],
+html:is([data-site-dark-mode="medio"], [data-site-dark-mode="alto"], [data-site-dark-mode="on"]) iframe[src*="google.com/maps"] {
+  filter: invert(100%) hue-rotate(180deg) !important;
+}
+
+/* Otimização de nitidez em fotos e vídeos no modo médio */
+html[data-site-dark-mode="medio"] img,
+html[data-site-dark-mode="medio"] video,
+html[data-site-dark-mode="medio"] canvas {
+  filter: invert(100%) hue-rotate(180deg) contrast(1.15) !important;
+}
+
+/* Preserva cores originais em vídeos e mídias em tela cheia */
+html[data-site-dark-mode] :fullscreen,
+html[data-site-dark-mode] :-webkit-full-screen,
+html[data-site-dark-mode] :fullscreen *,
+html[data-site-dark-mode] :-webkit-full-screen * {
+  filter: none !important;
+}
+
+/* Evita desperdício de tinta e páginas pretas ao imprimir */
+@media print {
+  html[data-site-dark-mode],
+  html[data-site-dark-mode] * {
+    filter: none !important;
+    background-color: transparent !important;
+    color-scheme: light !important;
+  }
+}
